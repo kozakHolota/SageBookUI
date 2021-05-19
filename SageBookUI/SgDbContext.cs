@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SageBookUI.DataModels;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -12,5 +13,8 @@ namespace SageBookUI
         public SgDbContext(): base("conStr")
         {
         }
+
+        public DbSet<Sage> Sages { get; set; }
+        public DbSet<Book> Books { get; set; }
     }
 }

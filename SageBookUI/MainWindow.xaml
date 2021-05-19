@@ -5,8 +5,78 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SageBookUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Sage and Books UI" Height="745" Width="1024">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="600"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <GroupBox Grid.Row="0" Grid.Column="0" Header="Search Sages">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Margin="20" HorizontalAlignment="Left" VerticalAlignment="Center">Sage Name</Label>
+                        <TextBox x:Name="sageNameField" Grid.Row="0" HorizontalAlignment="Right" Margin="20" Height="30" Width="250"></TextBox>
+                        <Label Grid.Row="1" Margin="20" HorizontalAlignment="Left" VerticalAlignment="Center">Sage City</Label>
+                        <TextBox x:Name="sageCityField" Grid.Row="1" HorizontalAlignment="Right" Margin="20" Height="30" Width="250"></TextBox>
+                    </Grid>
+                </GroupBox>
+                <Button Grid.Column="1" Grid.Row="0" Height="30" Width="120" Click="Button_Click_2">Search Sage</Button>
+                <GroupBox Grid.Row="1" Grid.Column="0" Header="Search Books">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Margin="20" HorizontalAlignment="Left" VerticalAlignment="Center">Book Title</Label>
+                        <TextBox x:Name="bookTitleField" Grid.Row="0" HorizontalAlignment="Right" Margin="20" Height="30" Width="250"></TextBox>
+                        <Label Grid.Row="1" Margin="20" HorizontalAlignment="Left" VerticalAlignment="Center">Book Author</Label>
+                        <TextBox x:Name="bookAuthorField" Grid.Row="1" HorizontalAlignment="Right" Margin="20" Height="30" Width="250"></TextBox>
+                    </Grid>
+                </GroupBox>
+                <Button Grid.Column="1" Grid.Row="1" Height="30" Width="120" Click="Button_Click_3">Search Books</Button>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Button Grid.Row="0" Width="200" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click">Add Sage >></Button>
+                <Button Grid.Row="1" Width="200" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click_1">Add Book >></Button>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="600"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <DataGrid ItemsSource="{Binding}" x:Name="resultGrid" Grid.Column="0" IsReadOnly="True" SelectionChanged="resultGrid_SelectionChanged"></DataGrid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Button Grid.Row="1" Height="30" Width="150" VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="False" x:Name="editButton" Click="editButton_Click">Edit</Button>
+                <Button Grid.Row="2" Height="30" Width="150" VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="False" x:Name="deleteButton" Click="deleteButton_Click">Delete</Button>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>

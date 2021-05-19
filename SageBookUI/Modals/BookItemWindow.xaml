@@ -1,0 +1,74 @@
+﻿<Window x:Class="SageBookUI.Modals.BookItemWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SageBookUI.Modals"
+        mc:Ignorable="d"
+        Title="Book Item Window" Height="450" Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20">Book Name:</Label>
+            <TextBox Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20" x:Name="bookNameField" Width="200" Text="{Binding Path=BookName}"></TextBox>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">Sages, who wrote the book</Label>
+            <ListView x:Name="sagesList" Grid.Row="1" Height="100" Width="250" ItemsSource="{Binding}"></ListView>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" HorizontalAlignment="Center">Book Description</Label>
+            <RichTextBox Grid.Row="1" Width="250" x:Name="bookDescriptionField"></RichTextBox>
+            <Button Grid.Row="2" Height="30" Width="150" Click="Button_Click_2" Content="{Binding Path=ButtonText}"></Button>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left">Name</Label>
+                <TextBox x:Name="sageName" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" Width="100" Height="20"></TextBox>
+                <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left">City</Label>
+                <TextBox x:Name="sageCity" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Width="100" Height="20"></TextBox>
+                <Button Grid.Row="1" Grid.Column="1" Width="100" Height="20" Click="Button_Click_1">Search>></Button>
+            </Grid>
+            <DataGrid Grid.Row="1" x:Name="foundSages" Width="250" ItemsSource="{Binding}" MouseDoubleClick="foundSages_MouseDoubleClick" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}" Width="125"/>
+                    <DataGridTextColumn Header="City" Binding="{Binding Path=City}" Width="125"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Grid.Row="2" Height="30" Width="150" Click="Button_Click">Cancel</Button>
+        </Grid>
+    </Grid>
+</Window>
